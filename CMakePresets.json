@@ -1,0 +1,85 @@
+{
+    "version": 8,
+    "configurePresets": [
+        {
+            "name": "windows_x64_2022_release",
+            "displayName": "windows_x64_2022_release",
+            "description": "windows_x64_2022_release",
+            "generator": "Visual Studio 17 2022",
+            "binaryDir": "${sourceDir}/build/windows_build",
+            "installDir": "${sourceDir}/install/windows_install",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            },
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        },
+        {
+            "name": "windows_x64_2022_debug",
+            "displayName": "windows_x64_2022_debug",
+            "description": "windows_x64_2022_debug",
+            "generator": "Visual Studio 17 2022",
+            "binaryDir": "${sourceDir}/build/windows_build",
+            "installDir": "${sourceDir}/install/windows_install",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            },
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        },
+        {
+            "name": "linux_debug",
+            "displayName": "linux_debug",
+            "description": "linux_debug",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/linux_build",
+            "installDir": "${sourceDir}/install/linux_install",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            },
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Linux"
+            }
+        },
+        {
+            "name": "linux_release",
+            "displayName": "linux_release",
+            "description": "linux_release",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/linux_build",
+            "installDir": "${sourceDir}/install/linux_install",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            },
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Linux"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "windows_x64_release",
+            "description": "windows_x64_release",
+            "displayName": "windows_x64_release",
+            "configurePreset": "windows_x64_2022_release",
+            "configuration": "Release"
+        },
+        {
+            "name": "windows_x64_debug",
+            "description": "windows_x64_debug",
+            "displayName": "windows_x64_debug",
+            "configurePreset": "windows_x64_2022_debug",
+            "configuration": "Debug"
+        }
+    ]
+}
