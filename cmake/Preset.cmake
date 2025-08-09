@@ -41,15 +41,18 @@ endif()
 find_package(Threads QUIET)
 
 if(ENABLE_RELEASE_DEBUG_INFO AND CMAKE_BUILD_TYPE STREQUAL "Release")
+    message(STATUS "Enable debug info in Release mode")
     if(MSVC)
         add_compile_options(/Zi /-UNDEBUG)
         add_link_options(/DEBUG)
+
     else()
         add_compile_options(-g3 -UNDEBUG)
     endif()
 endif()
 
 if(DISABLE_RELEASE_OPTIMIZATION AND CMAKE_BUILD_TYPE STREQUAL "Release")
+    message(STATUS "Disable optimization in Release mode")
     if(MSVC)
         add_compile_options(/Od /Ob0)
     else()

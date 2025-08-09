@@ -5,3 +5,7 @@ set(template_src
 add_executable(template
     ${template_src}
 )
+
+set_target_properties(template PROPERTIES
+    OUTPUT_NAME_DEBUG "templated"
+)
