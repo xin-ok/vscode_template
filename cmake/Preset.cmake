@@ -59,3 +59,5 @@ if(DISABLE_RELEASE_OPTIMIZATION AND CMAKE_BUILD_TYPE STREQUAL "Release")
         add_compile_options(-O0)
     endif()
 endif()
+
+include_directories(${CMAKE_SOURCE_DIR})
